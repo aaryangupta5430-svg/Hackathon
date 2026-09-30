@@ -217,18 +217,20 @@
             gap: 20px;
             flex-wrap: wrap;
             margin: 20px auto;
-            max-width: 900px;
-            padding: 15px;
+            max-width: 920px;
+            padding: 18px;
             background: var(--c-magenta);
             border: 6px ridge var(--c-yellow);
         }
 
         .player-poster-preview {
-            width: 180px;
-            height: 270px;
+            width: 220px;
+            height: 310px;
             border: 5px solid var(--c-yellow);
             background: var(--c-blue);
-            box-shadow: 6px 6px 0 var(--c-red);
+            box-shadow: 8px 8px 0 var(--c-red);
+            position: relative;
+            overflow: hidden;
         }
 
         .player-poster-preview img {
@@ -238,10 +240,37 @@
             display: block;
         }
 
+        .poster-top-ribbon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--c-red);
+            color: var(--c-yellow);
+            font-size: 11px;
+            font-weight: 900;
+            padding: 4px;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--c-yellow);
+        }
+
+        .poster-bot-ribbon {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--c-blue);
+            color: var(--c-green);
+            font-size: 12px;
+            font-weight: 900;
+            padding: 4px;
+            border-top: 2px solid var(--c-yellow);
+        }
+
         /* Unusable Video Player */
         .player-container {
-            width: 360px;
-            height: 210px;
+            width: 380px;
+            height: 230px;
             border: 12px dotted var(--c-red);
             background: var(--c-blue);
             position: relative;
@@ -278,7 +307,7 @@
 
         /* Horizontally stretched catalog */
         .movie-section {
-            width: 2500px;
+            width: 2600px;
             margin-top: 70px;
             background-color: var(--c-green);
             padding: 30px 20px;
@@ -288,11 +317,12 @@
             white-space: nowrap;
         }
 
+        /* Movie Card with Real Photo Poster */
         .movie-card {
-            width: 240px;
-            height: 520px;
+            width: 255px;
+            height: 560px;
             display: inline-block;
-            margin: 14px;
+            margin: 12px;
             background: var(--c-magenta);
             border: 6px ridge var(--c-yellow);
             vertical-align: top;
@@ -302,23 +332,77 @@
             white-space: normal;
         }
 
-        .movie-card img {
+        .photo-poster-wrapper {
+            position: relative;
             width: 100%;
-            height: 330px;
-            object-fit: cover;
-            border: 4px solid var(--c-blue);
+            height: 350px;
+            border: 4px solid var(--c-yellow);
             background: var(--c-blue);
-            display: block;
+            overflow: hidden;
+            box-shadow: 4px 4px 0px var(--c-red);
         }
 
-        .movie-card span {
+        .photo-poster-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-poster-wrapper:hover img {
+            transform: scale(1.08);
+        }
+
+        .badge-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--c-red);
             color: var(--c-yellow);
-            font-size: 15px;
-            font-weight: bold;
-            height: 42px;
+            font-size: 11px;
+            font-weight: 900;
+            padding: 4px 2px;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--c-yellow);
+            text-shadow: 1px 1px var(--c-blue);
+        }
+
+        .badge-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--c-blue);
+            color: var(--c-green);
+            font-size: 11px;
+            font-weight: 900;
+            padding: 4px 2px;
+            border-top: 2px solid var(--c-yellow);
+        }
+
+        .movie-card h4 {
+            margin: 8px 0 2px 0;
+            color: var(--c-yellow);
+            font-size: 16px;
+            font-weight: 900;
+            line-height: 1.2;
+            height: 40px;
             overflow: hidden;
+        }
+
+        .movie-card .subtitle {
+            display: block;
+            color: var(--c-blue);
+            background: var(--c-yellow);
+            font-size: 11px;
+            font-weight: bold;
+            padding: 2px;
+            margin-bottom: 6px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 
         .movie-card button {
@@ -329,9 +413,13 @@
             font-weight: 900;
             padding: 8px 18px;
             border: 4px outset var(--c-yellow);
-            margin-top: 8px;
             cursor: wait !important;
             width: 100%;
+            transition: transform 0.1s;
+        }
+
+        .movie-card button:active {
+            transform: scale(0.96);
         }
 
         /* =========================================================
@@ -571,12 +659,14 @@
         <h2 class="section-heading">FEATURED PRESENTATION (1000% VOLUME)</h2>
     </div>
 
-    <!-- Video Player Section with Poster -->
+    <!-- Video Player Section with REAL PHOTO POSTER -->
     <h3>NOW WATCHING: "TITANIC 2: THE REVENGE"</h3>
     <div class="player-stage">
-        <!-- Poster Preview -->
+        <!-- Photo Poster Preview -->
         <div class="player-poster-preview">
-            <img src="posters/titanic2.svg" alt="Titanic 2: The Revenge Poster">
+            <div class="poster-top-ribbon">⚠️ EXCLUSIVE PHOTO PREMIERE ⚠️</div>
+            <img src="posters/titanic2.jpg" alt="Titanic 2: The Revenge Photo Poster">
+            <div class="poster-bot-ribbon">TITANIC 2: THE REVENGE</div>
         </div>
 
         <!-- Player Container -->
@@ -592,54 +682,89 @@
         <h2 class="section-heading">TRENDING NOW (SCROLL RIGHT ----------------------------------------&gt;)</h2>
     </div>
 
-    <!-- Horizontally stretched catalog with REAL Posters -->
+    <!-- Horizontally stretched catalog with REAL PHOTO POSTERS -->
     <div class="movie-section">
         <!-- 1. Titanic 2 -->
         <div class="movie-card">
-            <img src="posters/titanic2.svg" alt="Titanic 2: The Revenge">
-            <span>Titanic 2: The Revenge</span>
+            <div class="photo-poster-wrapper">
+                <div class="badge-header">⚠️ 1000% VOLUME DOLBY</div>
+                <img src="posters/titanic2.jpg" alt="Titanic 2: The Revenge Photo Poster">
+                <div class="badge-footer">⭐ 0.001/10 • ICEBERG EDITION</div>
+            </div>
+            <h4>Titanic 2: The Revenge</h4>
+            <span class="subtitle">This Time The Iceberg Pays</span>
             <button onclick="triggerBufferingAndHang('Titanic 2: The Revenge')">Rent $99</button>
         </div>
 
         <!-- 2. Fast & Furious 87 -->
         <div class="movie-card">
-            <img src="posters/fast87.svg" alt="Fast & Furious 87">
-            <span>Fast &amp; Furious 87 (2026)</span>
+            <div class="photo-poster-wrapper">
+                <div class="badge-header">🔥 FAMILY IN SPACE • NOS 5000%</div>
+                <img src="posters/fast87.jpg" alt="Fast & Furious 87 Photo Poster">
+                <div class="badge-footer">⭐ 942 GEAR SHIFTS / MIN</div>
+            </div>
+            <h4>Fast &amp; Furious 87</h4>
+            <span class="subtitle">Mission: Andromeda</span>
             <button onclick="triggerBufferingAndHang('Fast & Furious 87')">Rent $99</button>
         </div>
 
         <!-- 3. Shrek 5 -->
         <div class="movie-card">
-            <img src="posters/shrek5.svg" alt="Shrek 5 Leaked Cam Rip">
-            <span>Shrek 5 (Leaked Cam Rip)</span>
+            <div class="photo-poster-wrapper">
+                <div class="badge-header">☠️ LEAKED CAM-RIP 144p</div>
+                <img src="posters/shrek5.jpg" alt="Shrek 5 Leaked Cam Rip Photo Poster">
+                <div class="badge-footer">⭐ MOSCOW CINEMA AUDIO</div>
+            </div>
+            <h4>Shrek 5</h4>
+            <span class="subtitle">The Onion Reckoning</span>
             <button onclick="triggerBufferingAndHang('Shrek 5')">Rent $99</button>
         </div>
 
         <!-- 4. Avatar 4 -->
         <div class="movie-card">
-            <img src="posters/avatar4.svg" alt="Avatar 4: The Path of Soil">
-            <span>Avatar 4: The Path of Soil</span>
+            <div class="photo-poster-wrapper">
+                <div class="badge-header">🌱 6 HR 45 MIN RUNTIME</div>
+                <img src="posters/avatar4.jpg" alt="Avatar 4: The Path of Soil Photo Poster">
+                <div class="badge-footer">⭐ 32K BIOLUMINESCENT DIRT</div>
+            </div>
+            <h4>Avatar 4: Path of Soil</h4>
+            <span class="subtitle">Pandora Farming Simulator</span>
             <button onclick="triggerBufferingAndHang('Avatar 4')">Rent $99</button>
         </div>
 
         <!-- 5. Bee Movie 2 -->
         <div class="movie-card">
-            <img src="posters/beemovie2.svg" alt="Bee Movie 2">
-            <span>Bee Movie 2: The Stinging</span>
+            <div class="photo-poster-wrapper">
+                <div class="badge-header">🐝 YA LIKE JAZZ 2?</div>
+                <img src="posters/beemovie2.jpg" alt="Bee Movie 2 Photo Poster">
+                <div class="badge-footer">⭐ 100% PURE HONEY SUIT</div>
+            </div>
+            <h4>Bee Movie 2: The Stinging</h4>
+            <span class="subtitle">Suing Humanity Once Again</span>
             <button onclick="triggerBufferingAndHang('Bee Movie 2')">Rent $99</button>
         </div>
 
         <!-- 6. Inception 2 -->
         <div class="movie-card">
-            <img src="posters/inception2.svg" alt="Inception 2">
-            <span>Inception 2: Deep Sleep</span>
+            <div class="photo-poster-wrapper">
+                <div class="badge-header">🌀 BWAAAAAAH SOUNDTRACK</div>
+                <img src="posters/inception2.jpg" alt="Inception 2 Photo Poster">
+                <div class="badge-footer">⭐ HEAVY SNORE EDITION</div>
+            </div>
+            <h4>Inception 2: Deep Sleep</h4>
+            <span class="subtitle">Hit Snooze 5 Times</span>
             <button onclick="triggerBufferingAndHang('Inception 2')">Rent $99</button>
         </div>
 
         <!-- 7. The Matrix 5 -->
         <div class="movie-card">
-            <img src="posters/matrix5.svg" alt="The Matrix 5">
-            <span>The Matrix 5: Reboot Again</span>
+            <div class="photo-poster-wrapper">
+                <div class="badge-header">💻 56K DIAL-UP TERMINAL</div>
+                <img src="posters/matrix5.jpg" alt="The Matrix 5 Photo Poster">
+                <div class="badge-footer">⭐ PLEASE INSERT FLOPPY DISK 2</div>
+            </div>
+            <h4>The Matrix 5: Reboot</h4>
+            <span class="subtitle">Take The Blue Screen</span>
             <button onclick="triggerBufferingAndHang('The Matrix 5')">Rent $99</button>
         </div>
     </div>
